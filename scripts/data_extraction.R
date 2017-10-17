@@ -8,7 +8,13 @@ library(dts.quality)
 
 #### Spreadsheet information -----------------------------
 
-path <- "~/Documents/GitHub/C6 Pesticide Validation/data/GCMSMS Validation Data.xlsx"
+if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
+        
+        path <- "H:/GitHub Projects/C6-Pesticide-Validation/data/GCMSMS Validation Data.xlsx" 
+} else { 
+        path <- "~/Documents/GitHub/C6 Pesticide Validation/data/GCMSMS Validation Data.xlsx"
+}
+
 sheets <- excel_sheets(path = path)
 
 #### Data Input -----------------------------
@@ -23,8 +29,7 @@ GC_All <- data.frame(
 
 for (j in 1:7){
 
-GC_data <- read_excel("~/Documents/GitHub/C6 Pesticide Validation/data/GCMSMS Validation Data.xlsx", 
-                      sheet = sheets[j], skip = 4)
+GC_data <- read_excel(path, sheet = sheets[j], skip = 4)
 
 #### Data Cleaning -----------------------------
 
