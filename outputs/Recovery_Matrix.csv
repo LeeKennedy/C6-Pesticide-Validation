@@ -1,0 +1,116 @@
+Compound,Apple,Avocado,Carrot,Onion,Orange,Spinach,Strawberries
+2-Phenylphenol (raw),NA,198.9,199.4,205.4,205.3,NaN,202.8
+2-Phenylphenol (raw) *,195.5,NA,NA,NA,NA,NA,NA
+"3,4 Dichloroaniline",83.2,88.3,98.5,100.8,102.6,NaN,96.4
+Aldrin,101.8,98.9,103.9,103.4,98.1,NaN,96.9
+alpha-BHC,99.2,102.5,100.7,100.8,101.7,NaN,101.1
+alpha-Endosulfan,75.9,92.7,90.7,102.2,94.9,NaN,85
+Azinphos-ethyl,100.5,105,100.9,95.7,93.3,NaN,94.9
+Azinphos-methyl,103.9,87.7,103.3,87.3,82.6,NaN,90.7
+Azoxystrobin,101.2,95.2,115.8,102.7,93.3,NaN,99.4
+Benalaxyl,97.6,93.1,100.3,100.2,102.7,NaN,100
+beta-BHC,99,100.3,101.2,101.5,102.5,NaN,96
+beta-Endosulfan,93.2,89.4,98.1,95.1,88.1,NaN,94.7
+Bifenthrin,97.6,98.1,100.3,100.4,100.2,NaN,100.2
+Bioresmethrin,96,NaN,101.6,103.8,102.2,NaN,93.4
+Bitertanol,101.6,97.7,103.7,100.8,102.7,NaN,101
+Boscalid,100.6,96.8,102.1,99.7,94.6,NaN,96.9
+Bromophos-ethyl,99.2,105.6,104.6,99.8,97.6,NaN,99.7
+Buprofezin,99.9,94.6,104.1,102.5,103.5,NaN,103.5
+Captan (raw),93.6,76.4,95.7,0,106.8,NaN,94.8
+Chlordane-cis,98.7,96.4,101.8,103.3,99.2,NaN,105.1
+Chlordane-trans,100.6,107.7,104.5,103.9,103.7,NaN,104.7
+Chlorfenapyr,96.6,96.3,100.9,100.4,100.1,NaN,99.7
+Chlorothalonil,114.3,87.4,95.7,0,92,NaN,98.6
+Chlorpyrifos,103.2,103.5,101.5,100.1,102,NaN,100.3
+Chlorpyrifos-methyl,102.1,101.7,99.6,100.8,100.1,NaN,97.8
+Chlorthal-dimethyl,100.4,100.4,102.6,101.7,99.3,NaN,98.2
+Cyfluthrin,99.3,91.4,102.4,100.6,100.7,NaN,98.8
+Cyhalothrin,96.8,94.4,100.3,97.5,100.3,NaN,99.3
+Cypermethrin,100.8,95.1,103,100.9,104.4,NaN,100
+Cyproconazole,96.7,98.9,99.9,99.4,101,NaN,99.3
+Cyprodinil,99,100.6,100.4,101.6,104.6,NaN,102.3
+delta-BHC,96.5,93.1,101.5,99.5,102.6,NaN,99.7
+Deltamethrin,100.7,98.2,100.1,98.1,92.6,NaN,95.9
+Diazinon,102,101.5,98.9,100.5,100.6,NaN,99
+Dichlorvos,101.2,97.7,101.2,101.6,103.2,NaN,101.1
+Dicloran,98.9,99.8,97.2,101.6,99.1,NaN,96.6
+Dicofol (raw),94.9,85.7,100,99.9,99.7,NaN,97.4
+Dieldrin (raw),106.1,111,109.3,109.7,101.5,NaN,105.2
+Difenoconazole,101.8,96.8,101.2,100.9,98.3,NaN,99.3
+Dimethoate (raw),102.2,87.9,100.9,97,95.4,NaN,96.2
+Dimethomorph,102,88.8,101.3,100.5,95.6,NaN,98.7
+Diphenylamine,96.6,99.1,99.1,99.5,104,NaN,100.1
+Disulfoton (raw),99.1,104.9,103.6,100.5,104.9,NaN,99.8
+Endosulfan sulfate,110.3,95.3,109.8,94.5,102.9,NaN,97.9
+Endrin,99.9,99.7,99,96.4,107,NaN,95.3
+Ethoprophos,100.8,101.5,100.3,101.3,100.9,NaN,100.6
+Fenamiphos (raw),98.9,102.6,102.6,102.3,100.2,NaN,99.7
+Fenarimol,100.4,96,103.5,102,100.6,NaN,103.3
+Fenitrothion,101.5,94.1,99.7,99.5,94.9,NaN,95.6
+Fenoxycarb,98.4,98.1,101.9,101.7,102.7,NaN,96.3
+Fenthion (raw),100.8,102,97.8,99.9,97.7,NaN,97.1
+Fenthion-oxon,103.8,70.7,102.6,98.6,97.7,NaN,97.8
+Fenthion-oxon-sulfone,95,2.1,112.8,74.7,68.5,NaN,92.8
+Fenvalerate,100.7,107.3,104.6,100.8,96,NaN,95.4
+Fipronil (raw),104.2,96.5,101.3,101.9,99.7,NaN,99.7
+Fipronil-sulfide,102.7,100.5,99.4,103.8,98.8,NaN,102.8
+Fipronil-sulfone,101,105.1,103.7,101.2,97.5,NaN,100.8
+Fipronyl-desulfonyl,101,99.7,98.9,102,99.1,NaN,103.4
+Fludioxonil,100.5,98,99.7,99.7,102,NaN,95.6
+Flusilazole,98.3,91,103.9,102.1,103,NaN,101.3
+Heptachlor (raw),101.3,99.9,99.8,101.5,98.1,NaN,96.4
+Heptachlor-endo-epoxide,92.8,90.4,120.9,97.6,91,NaN,94.4
+Heptachlor-exo-epoxide,101,92.3,101.2,102.6,103,NaN,102.1
+Hexachlorobenzene,100,104,97.2,102.2,99.3,NaN,98.3
+Hexaconazole,99.6,216.2,99.7,104.1,106,NaN,102.6
+Indoxacarb,102.8,76.1,116,97,93.7,NaN,95.5
+Iprodione,98.3,91.2,107.5,95.6,98.3,NaN,98.6
+Kresoxim-methyl,98,98.1,103,101.2,101.6,NaN,102.2
+Lindane (gamma-BHC),100.1,97.7,95.9,103.2,103.9,NaN,97.7
+Linuron (raw),94.4,83.5,97,91.3,93.1,NaN,93.5
+Malathion,100.4,100.5,100.8,100.6,100.3,NaN,99
+Metalaxyl,102,97.3,102,101.7,99.8,NaN,98.4
+Methacrifos,101.3,99.3,101.9,103.8,103,NaN,101.3
+Methidathion,96.9,93.3,102,95.4,95.1,NaN,98.3
+Metribuzin,96.8,100.3,99.8,105.5,104.9,NaN,100.3
+Mevinphos,99.5,91.3,99.2,99.2,99.6,NaN,99.9
+"o,p-Dicofol",98.9,95.9,99.5,102.3,103.6,NaN,94.4
+"o,p'-DDT",92.9,90.1,102.4,99.4,98,NaN,94
+Oxyfluorfen,92,91.1,98.7,102.9,95.9,NaN,93.1
+"p,p'-DDD",101.1,102.5,100.4,100.3,100.2,NaN,102.8
+"p,p'-DDE",96.9,97.6,100.3,100.8,101.6,NaN,103
+"p,p'-DDT",90.3,84.6,100.1,94.1,94.7,NaN,89.9
+Paclobutrazol,98.2,100.2,100.6,99.5,102,NaN,102.1
+Parathion (ethyl),99.3,97.4,94.8,101,94.9,NaN,94.3
+Parathion-methyl,101.2,101.4,99.7,100.9,97.3,NaN,98.9
+Pendimethalin,96.7,108.4,98.5,98.5,97.1,NaN,98.5
+Permethrin,98.4,99.2,100.2,100.8,99.6,NaN,100.1
+Phenothrin,97.4,96.8,100.7,101.5,95.8,NaN,103
+Phorate (raw),99.3,100.2,97.9,99.5,98.4,NaN,99.8
+Phorate-Oxon,98.2,86.6,97.2,99.6,99.6,NaN,97
+Phorate-sulfone,101.8,97.1,103,100.8,99.5,NaN,97.6
+Phorate-sulfoxide,99.7,98.2,99.5,99.6,96.8,NaN,96.6
+Phosmet,104.4,83.3,105.2,88.4,94.6,NaN,91.9
+Piperonyl butoxide,99.9,107,102.4,101.2,106,NaN,101.8
+Pirimicarb (raw),98.2,96.7,101.8,99.6,100.7,NaN,99.2
+Pirimiphos-methyl,107.2,106.8,99.3,95.6,96,NaN,105
+Procymidone,97,96.9,99.4,98.2,101.6,NaN,101.6
+Propiconazole,99.9,109,101,101.1,102.5,NaN,103.7
+Prothiofos,98.1,104.4,100.2,99.7,100.6,NaN,98.4
+Pyraclostrobin,100.8,93.6,98.2,98.2,96,NaN,94.6
+Pyrimethanil,96.7,99,98.7,99.9,101.8,NaN,100.1
+Pyriproxyfen,97.5,163,100.1,98.5,101.5,NaN,100.8
+Quintozene,101.1,101.6,99.7,100.6,100.9,NaN,99.9
+Simazine,101.1,98.9,98.4,102,105.5,NaN,100
+tau-Fluvalinate,102.3,97.3,102.2,98.7,99.7,NaN,98.7
+Tebuconazole,98.4,102.2,99.5,98.1,99.9,NaN,101.3
+Tebufenpyrad,100.5,96.8,101.6,101.4,101,NaN,103.7
+Terbufos (raw),98.1,99.1,98.6,98.6,99.1,NaN,98.4
+Tetradifon,101,95.3,97.1,103.7,98.3,NaN,97.2
+THP,101.3,123,102.1,73.6,113,NaN,107.2
+Tolclofos-methyl,99.7,100,99.7,102.2,98.5,NaN,98.2
+Triadimefon,98.1,103.8,97,102.8,99,NaN,100.7
+Trifloxystrobin (raw),100,95.7,104.7,101.3,104.1,NaN,102.8
+Trifloxystrobin Metabolite,100.1,101.6,112.1,112,120.4,NaN,99.4
+Vinclozolin,102.2,96,100.2,101.9,98.9,NaN,102.8

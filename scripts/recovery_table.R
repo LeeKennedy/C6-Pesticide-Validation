@@ -88,12 +88,20 @@ GC_All$Result <- as.numeric(GC_All$Result)
 ### Summary ---------------------------------
 
 GC_summary <- GC_All %>% 
-        group_by(Matrix, Batch, Compound) %>% 
+        group_by(Matrix, Compound) %>% 
         summarise(Recovery = round(100*mean(Result, na.rm=TRUE)/0.075,1))
 
 GC_summary <- as.data.frame(GC_summary)
 
 GC_wide <- spread(GC_summary, Matrix, Recovery)
+
   
-#write_csv(GC_wide, "temp.csv")                
+write_csv(GC_wide, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/outputs/Recovery_Matrix.csv")                
                   
+if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
+        
+        write_csv(GC_wide, "H:/GitHub Projects/C6-Pesticide-Validation/outputs/Recovery_Matrix.csv")
+} else { 
+        write_csv(GC_wide, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/outputs/Recovery_Matrix.csv")
+        
+}
