@@ -94,5 +94,6 @@ GC_summary <- GC_All %>%
 GC_summary <- as.data.frame(GC_summary)
 
 GC_wide <- spread(GC_summary, Matrix, Recovery)
-                  
+  
+#write_csv(GC_wide, "temp.csv")                
                   
