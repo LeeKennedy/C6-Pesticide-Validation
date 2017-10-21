@@ -27,7 +27,7 @@ GC_precision2 <- data.frame(
 
 #### Data Input -----------------------------
 
-for (m in c(1,3,4,5,6,7)){
+for (m in c(1,2,3,4,5,6,7)){
 
 GC_data <- read_excel(path, sheet = sheets[m], skip = 4)
 
@@ -97,7 +97,7 @@ GC_precision2 <- rbind(GC_precision2, GC_precision)
 }
 }
 
-
+GC_precision2$Precision <- 2*GC_precision2$Reproducibility
 
 if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
         

@@ -35,7 +35,7 @@ GC_longer2 <- data.frame(
 
 
 for (j in 1:7){
-        
+
 
 GC_data <- read_excel(path, sheet = sheets[j], skip = 4)
         
@@ -85,7 +85,7 @@ GC_longer$Value <- sapply(GC_longer$Value, as.numeric)
 
 GC_longer$Matrix <- sheets[j]
 GC_longer$Mean <- 0.075
-GC_longer$SD <- 0.005
+GC_longer$SD <- 0.001
 GC_longer$n <- 20
 GC_longer$Units <- "mg/kg"
 GC_longer <- GC_longer[, c(1,5,2,3,6:8,4)]
@@ -115,11 +115,22 @@ summary_bias <- bias %>%
 
 ## ------------------------------------------------------------------------
 
-summary_bias <- summary_bias %>% 
-        filter(n >1)
+
 summary_bias <- summary_bias[,c(1:7)]
 
-summary_bias
+nrsb <- nrow(summary_bias)
+summary_bias$Significance <- "temp"
+
+for (l in 1:nrsb){
+
+        if ((2*summary_bias$UoB[l] > abs(summary_bias$av_bias[l])) == TRUE ){
+                
+                summary_bias$Significance[l] = "Insignificant"
+} else {
+                summary_bias$Significance[l] = "Significant" 
+        }
+}
+       
 
 write.csv(summary_bias, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/outputs/Bias_Summary.csv")
 
