@@ -12,14 +12,14 @@ options(stringsAsFactors = FALSE)
 
 if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
         
-        path <- "H:/GitHub Projects/C6-Pesticide-Validation/data/GCMSMS Validation Data.xlsx" 
+        path <- "H:/GitHub Projects/C6-Pesticide-Validation/data/LCMSMS Validation Data.xlsx" 
 } else { 
-        path <- "~/Documents/GitHub/C6 Pesticide Validation/data/GCMSMS Validation Data.xlsx"
+        path <- "~/Documents/GitHub/C6 Pesticide Validation/data/LCMSMS Validation Data.xlsx"
 }
 
 sheets <- excel_sheets(path = path)
 
-GC_precision2 <- data.frame(
+LC_precision2 <- data.frame(
         Compound = as.character(),
         Matrix = as.character(),
         Repeatability = as.numeric(),
@@ -27,42 +27,30 @@ GC_precision2 <- data.frame(
 
 #### Data Input -----------------------------
 
-for (m in c(1,2,3,4,5,6,7)){
+for (m in seq(from=3, to=15, by=2)){
 
-GC_data <- read_excel(path, sheet = sheets[m], skip = 4)
+LC_data <- read_excel(path, sheet = sheets[m], skip = 3)
 
-n_rows <- nrow(GC_data)
+n_rows <- nrow(LC_data)
 
 
 ####   Taking one line ---------------------------------------
 
 for (k in 1:n_rows) {
         
-n <- ncol(GC_data)
+n <- ncol(LC_data)
         
-if(n == 29) {
-        batch1 <- GC_data[k,c(3:9)]
-} else {
-        batch1 <- GC_data[k,c(2:8)]
-}
+
+batch1 <- LC_data[k,c(2:8)]
 
 
-if(n == 29) {
-        batch2 <- GC_data[k,c(12:18)]
-} else {
-        batch2 <- GC_data[k,c(11:17)]
-}
+batch2 <- LC_data[k,c(10:16)]
 
 for (i in 1:7){
         colnames(batch2)[i] = i 
 }
 
-if(n == 29) {
-        batch3 <- GC_data[k,c(21:27)]
-} else {
-        batch3 <- GC_data[k,c(20:26)]
-}
-
+batch3 <- LC_data[k,c(18:24)]
 
 for (i in 1:7){
         colnames(batch3)[i] = i 
@@ -86,23 +74,25 @@ Reproducibility <- sqrt(Repeatability^2 + interim^2)
 
 
 
-GC_precision <- as.data.frame(cbind(Repeatability, Reproducibility))
+LC_precision <- as.data.frame(cbind(Repeatability, Reproducibility))
 
-GC_precision$Matrix <- sheets[m]
-comp <- as.list((GC_data)[k,1])
-GC_precision$Compound <- comp[[1]]
+split <- strsplit(sheets[m], split="-")
+LC_precision$Matrix <- split[[1]][1]
 
-GC_precision <- GC_precision[,c(4,3,1,2)]
-GC_precision2 <- rbind(GC_precision2, GC_precision)
+comp <- as.list((LC_data)[k,1])
+LC_precision$Compound <- comp[[1]]
+
+LC_precision <- LC_precision[,c(4,3,1,2)]
+LC_precision2 <- rbind(LC_precision2, LC_precision)
 }
 }
 
-GC_precision2$Precision <- 2*GC_precision2$Reproducibility
+LC_precision2$Precision <- 2*LC_precision2$Reproducibility
 
 if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
         
-        write_csv(GC_wide, "H:/GitHub Projects/C6-Pesticide-Validation/outputs/Reproducibility.csv")
+        write_csv(LC_precision2, "H:/GitHub Projects/C6-Pesticide-Validation/LC outputs/LC_Reproducibility.csv")
 } else { 
-        write_csv(GC_precision2, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/outputs/Reproducibility.csv")
+        write_csv(LC_precision2, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/LC outputs/LC_Reproducibility.csv")
         
 }

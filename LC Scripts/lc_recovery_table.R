@@ -6,20 +6,22 @@ library(readxl)
 library(tidyverse)
 library(dts.quality)
 
+options (stringsAsFactors = FALSE)
+
 #### Spreadsheet information -----------------------------
 
 if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
         
-        path <- "H:/GitHub Projects/C6-Pesticide-Validation/data/GCMSMS Validation Data.xlsx" 
+        path <- "H:/GitHub Projects/C6-Pesticide-Validation/data/LCMSMS Validation Data.xlsx" 
 } else { 
-        path <- "~/Documents/GitHub/C6 Pesticide Validation/data/GCMSMS Validation Data.xlsx"
+        path <- "~/Documents/GitHub/C6 Pesticide Validation/data/LCMSMS Validation Data.xlsx"
 }
 
 sheets <- excel_sheets(path = path)
 
 #### Data Input -----------------------------
 
-GC_All <- data.frame(
+LC_All <- data.frame(
         Compound = as.character(),
         Replicate = as.character(),
         Result = as.numeric(),
@@ -27,81 +29,66 @@ GC_All <- data.frame(
         Matrix = as.character())
 
 
-for (j in 1:7){
+for (j in c(3,5,7,9,11,13,15)){
 
-GC_data <- read_excel(path, sheet = sheets[j], skip = 4)
+
+LC_data <- read_excel(path, sheet = sheets[j], skip = 3)
 
 #### Data Cleaning -----------------------------
 
-n <- ncol(GC_data)
+LC_data1 <- LC_data[,c(1,2:8)]
 
-if(n == 29) {
-        GC_data1 <- GC_data[,c(1,3:9)]
-} else {
-        GC_data1 <- GC_data[,c(1,2:8)]
-}
-
-GC_data_long1 <- tidyr::gather(data = GC_data1, key = Replicate, value = Result, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
-GC_data_long1$Batch <- 1
+LC_data_long1 <- tidyr::gather(data = LC_data1, key = Replicate, value = Result, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
+LC_data_long1$Batch <- 1
 
 
-if(n == 29) {
-        GC_data2 <- GC_data[,c(1,12:18)]
-} else {
-        GC_data2 <- GC_data[,c(1,11:17)]
-}
 
-
+LC_data2 <- LC_data[,c(1,10:16)]
 
 for (i in 2:8){
-    colnames(GC_data2)[i] = i-1 
+    colnames(LC_data2)[i] = i-1 
 }
 
-GC_data_long2 <- tidyr::gather(data = GC_data2, key = Replicate, value = Result, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
-GC_data_long2$Batch <- 2
+LC_data_long2 <- tidyr::gather(data = LC_data2, key = Replicate, value = Result, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
+LC_data_long2$Batch <- 2
 
-GC_All1 <- rbind(GC_data_long1, GC_data_long2)
+LC_All1 <- rbind(LC_data_long1, LC_data_long2)
 
-
-if(n == 29) {
-        GC_data3 <- GC_data[,c(1,21:27)]
-} else {
-        GC_data3 <- GC_data[,c(1,20:26)]
-}
+LC_data3 <- LC_data[,c(1,18:24)]
 
 for (i in 2:8){
-        colnames(GC_data3)[i] = i-1 
+        colnames(LC_data3)[i] = i-1 
 }
+LC_data_long3 <- tidyr::gather(data = LC_data3, key = Replicate, value = Result, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
+LC_data_long3$Batch <- 3
 
-GC_data_long3 <- tidyr::gather(data = GC_data3, key = Replicate, value = Result, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
-GC_data_long3$Batch <- 3
+LC_All1 <- rbind(LC_All1, LC_data_long3)
 
-GC_All1 <- rbind(GC_All1, GC_data_long3)
+split <- strsplit(sheets[j], split="-")
+LC_All1$Matrix <- split[[1]][1]
 
-GC_All1$Matrix <- sheets[j]
-
-GC_All <- rbind(GC_All, GC_All1)
+LC_All <- rbind(LC_All, LC_All1)
 }
 
 GC_All$Result <- as.numeric(GC_All$Result)
 
 ### Summary ---------------------------------
 
-GC_summary <- GC_All %>% 
+LC_summary <- LC_All %>% 
         group_by(Matrix, Compound) %>% 
         summarise(Recovery = round(100*mean(Result, na.rm=TRUE)/0.075,1))
 
-GC_summary <- as.data.frame(GC_summary)
+LC_summary <- as.data.frame(LC_summary)
 
-GC_wide <- spread(GC_summary, Matrix, Recovery)
+LC_wide <- spread(LC_summary, Matrix, Recovery)
 
   
-write_csv(GC_wide, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/outputs/Recovery_Matrix.csv")                
+#write_csv(LC_wide, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/LC outputs/Recovery_Matrix.csv")                
                   
 if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
         
-        write_csv(GC_wide, "H:/GitHub Projects/C6-Pesticide-Validation/outputs/Recovery_Matrix.csv")
+        write_csv(LC_wide, "H:/GitHub Projects/C6-Pesticide-Validation/LC outputs/LC_Recovery_Matrix.csv")
 } else { 
-        write_csv(GC_wide, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/outputs/Recovery_Matrix.csv")
+        write_csv(LC_wide, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/LC outputs/LC_Recovery_Matrix.csv")
         
 }
