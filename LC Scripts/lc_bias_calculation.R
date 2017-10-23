@@ -69,7 +69,12 @@ LC_longer <- tidyr::gather(data = LC_long, key = Result, value = Value, na.rm = 
 
 LC_longer$Value <- sapply(LC_longer$Value, as.numeric)
 
-LC_longer$Matrix <- sheets[j]
+
+
+split <- strsplit(sheets[j], split="-")
+LC_longer$Matrix <- split[[1]][1]
+
+
 LC_longer$Mean <- 0.075
 LC_longer$SD <- 0.001
 LC_longer$n <- 20
