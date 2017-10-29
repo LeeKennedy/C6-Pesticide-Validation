@@ -63,6 +63,10 @@ batch_set <- batch_set[,c(8,1:7)]
 batch_set
 batchlong <- tidyr::gather(data = batch_set, key = Run, value = Value, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
 
+
+batchlong$Value <- outliers(batchlong$Value)
+n <- nrow(na.omit(batchlong))
+
 batch_aov <- aov(Value~Batch, data = batchlong, na.rm = TRUE)
 
 #Repeatability & Reproducibility
@@ -72,7 +76,9 @@ Repeatability <- sqrt(mean.sqr[2])
 interim <- sqrt((mean.sqr[1]-mean.sqr[2])/ncount)
 Reproducibility <- sqrt(Repeatability^2 + interim^2)
 
-
+if (is.na(Reproducibility == TRUE)) { 
+        Reproducibility <- Repeatability 
+}
 
 LC_precision <- as.data.frame(cbind(Repeatability, Reproducibility))
 
@@ -82,7 +88,9 @@ LC_precision$Matrix <- split[[1]][1]
 comp <- as.list((LC_data)[k,1])
 LC_precision$Compound <- comp[[1]]
 
-LC_precision <- LC_precision[,c(4,3,1,2)]
+LC_precision$n <- n
+
+LC_precision <- LC_precision[,c(4,3,5,1,2)]
 LC_precision2 <- rbind(LC_precision2, LC_precision)
 }
 }

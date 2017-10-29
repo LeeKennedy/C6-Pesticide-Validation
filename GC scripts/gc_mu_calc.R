@@ -11,8 +11,8 @@ library(dts.quality)
 
 #### Data Input -----------------------------
 
-precision <- read_csv("outputs/Reproducibility.csv")
-bias <- read_csv("outputs/Bias_Summary.csv")
+precision <- read_csv("~/Documents/GitHub/C6 Pesticide Validation/GC outputs/Reproducibility.csv")
+bias <- read_csv("~/Documents/GitHub/C6 Pesticide Validation/GC outputs/Bias_Summary.csv")
 
 #### Data Merging -----------------------------
 
@@ -35,8 +35,8 @@ data_MU$pct_MU <- 100*data_MU$MU/0.075
 
 if("Windows" %in% Sys.info()['sysname'] == TRUE){ 
         
-        write_csv(data_MU, "H:/GitHub Projects/C6-Pesticide-Validation/outputs/MU_Combined.csv")
+        write_csv(data_MU, "H:/GitHub Projects/C6-Pesticide-Validation/GC outputs/MU_Combined.csv")
 } else { 
-        write_csv(data_MU, "/Users/Study Old/Documents/GitHub/C6 Pesticide Validation/outputs/MU_Combined.csv")
+        write_csv(data_MU, "~/Documents/GitHub/C6 Pesticide Validation/GC outputs/MU_Combined.csv")
         
 }

@@ -37,7 +37,7 @@ n_rows <- nrow(GC_data)
 ####   Taking one line ---------------------------------------
 
 for (k in 1:n_rows) {
-        
+
 n <- ncol(GC_data)
         
 if(n == 29) {
@@ -65,6 +65,7 @@ if(n == 29) {
 
 
 for (i in 1:7){
+        
         colnames(batch3)[i] = i 
 }
 
@@ -75,6 +76,9 @@ batch_set <- batch_set[,c(8,1:7)]
 batch_set
 batchlong <- tidyr::gather(data = batch_set, key = Run, value = Value, na.rm = FALSE, `1`, `2`, `3`, `4`, `5`, `6`, `7`)
 
+batchlong$Value <- outliers(batchlong$Value)
+n <- nrow(na.omit(batchlong))
+
 batch_aov <- aov(Value~Batch, data = batchlong, na.rm = TRUE)
 
 #Repeatability & Reproducibility
@@ -84,15 +88,19 @@ Repeatability <- sqrt(mean.sqr[2])
 interim <- sqrt((mean.sqr[1]-mean.sqr[2])/ncount)
 Reproducibility <- sqrt(Repeatability^2 + interim^2)
 
-
+if (is.na(Reproducibility == TRUE)) { 
+        Reproducibility <- Repeatability 
+        }
+        
 
 GC_precision <- as.data.frame(cbind(Repeatability, Reproducibility))
 
 GC_precision$Matrix <- sheets[m]
 comp <- as.list((GC_data)[k,1])
 GC_precision$Compound <- comp[[1]]
+GC_precision$n <- n
 
-GC_precision <- GC_precision[,c(4,3,1,2)]
+GC_precision <- GC_precision[,c(4,3,5,1,2)]
 GC_precision2 <- rbind(GC_precision2, GC_precision)
 }
 }
